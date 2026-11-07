@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "flows": {
+    "admin-access-control": {
+      "plan": [
+        "17e3520ee5702a53",
+        "41ecc0c6d5f9e2ba",
+        "548c6f6c4256a3d2",
+        "61d91c8e95b3e6b4"
+      ],
+      "last": "failed"
+    },
+    "admin-add-rename-delete-product": {
+      "plan": [
+        "040b96592db5aca9",
+        "048610fd2ed0e54a",
+        "0df353c75d5760cb",
+        "14bc70b160c3945a",
+        "17e3520ee5702a53",
+        "2a2eed6da9533de3",
+        "2d43b7d4eb71f54e",
+        "2e1a55fc4a3b96a5",
+        "32dae9a1c51639a3",
+        "41ecc0c6d5f9e2ba",
+        "45512b0ff95ff8e9",
+        "52070fc58f767b3f",
+        "58761986c14360a9",
+        "6315764d5d5150f2",
+        "6ab2f790e42197fa",
+        "7770c8243f13691f",
+        "7a5e841c8d9d4eab",
+        "98e3ecfdceb9b76e",
+        "b0bce31b51f5b180",
+        "c22aeef7577e8d40",
+        "c7add5e66a0daca9",
+        "d3d9a6ca5d42bb7b",
+        "d4a5d9e1a06f5159",
+        "eb40d82c5344d32c"
+      ],
+      "last": "passed"
+    },
+    "admin-search-and-filter": {
+      "plan": [
+        "0df353c75d5760cb",
+        "7770c8243f13691f",
+        "c26daacdc16b791f",
+        "f8fb590dbad5f8c5",
+        "fcb1abdddf02703a"
+      ],
+      "last": "passed"
+    }
+  },
+  "order": [
+    "admin-add-rename-delete-product",
+    "admin-search-and-filter",
+    "admin-access-control"
+  ]
+}

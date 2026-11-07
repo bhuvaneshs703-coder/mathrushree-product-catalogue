@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "spec": {
+    "id": "admin-search-and-filter",
+    "kind": "interactive",
+    "goal": "The owner searches the admin list and filters it by publish state",
+    "requirementIndexes": [
+      5,
+      9,
+      10
+    ],
+    "acceptanceCriteriaIndexes": [
+      3,
+      4
+    ],
+    "steps": [
+      "Sign in",
+      "Press the Admin link",
+      "Add a product named Brass Diya Set with SKU TEST-002, choose the category Sarees, and press Create product",
+      "Search the admin list for TEST-002",
+      "Filter the admin list by Draft"
+    ],
+    "checks": [
+      {
+        "afterStep": 0,
+        "expectText": "Admin"
+      },
+      {
+        "afterStep": 1,
+        "expectText": "Products"
+      },
+      {
+        "afterStep": 2,
+        "expectText": "Brass Diya Set"
+      },
+      {
+        "afterStep": 3,
+        "expectText": "Brass Diya Set"
+      },
+      {
+        "afterStep": 4,
+        "expectText": "Brass Diya Set"
+      }
+    ]
+  }
+}

@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Bundled fonts ─────────────────────────────────────────── */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Fraunces", serif;
+    --font-body: "General Sans", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 0.375rem;
+
+    /* Warm Ivory paper ground — light mode is primary */
+    --background: 0.955 0.012 85;
+    --foreground: 0.24 0.045 250;
+    --card: 0.975 0.009 85;
+    --card-foreground: 0.24 0.045 250;
+    --popover: 0.985 0.006 85;
+    --popover-foreground: 0.24 0.045 250;
+
+    /* Deep Navy #0B1F33 */
+    --primary: 0.24 0.045 250;
+    --primary-foreground: 0.965 0.012 85;
+
+    --secondary: 0.91 0.016 85;
+    --secondary-foreground: 0.3 0.04 250;
+    --muted: 0.915 0.014 85;
+    --muted-foreground: 0.5 0.028 250;
+
+    /* Gold #C8A45D */
+    --accent: 0.74 0.09 85;
+    --accent-foreground: 0.24 0.045 250;
+
+    --destructive: 0.55 0.2 27;
+    --destructive-foreground: 0.97 0.01 85;
+
+    --success: 0.55 0.13 155;
+    --warning: 0.72 0.13 75;
+
+    --border: 0.87 0.016 82;
+    --input: 0.87 0.016 82;
+    --ring: 0.74 0.09 85;
+
+    --chart-1: 0.24 0.045 250;
+    --chart-2: 0.74 0.09 85;
+    --chart-3: 0.5 0.028 250;
+    --chart-4: 0.62 0.08 60;
+    --chart-5: 0.42 0.06 220;
+
+    --sidebar: 0.24 0.045 250;
+    --sidebar-foreground: 0.94 0.012 85;
+    --sidebar-primary: 0.74 0.09 85;
+    --sidebar-primary-foreground: 0.24 0.045 250;
+    --sidebar-accent: 0.3 0.04 250;
+    --sidebar-accent-foreground: 0.94 0.012 85;
+    --sidebar-border: 0.34 0.035 250;
+    --sidebar-ring: 0.74 0.09 85;
+
+    /* Depth & motion tokens */
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.24 0.045 250),
+      oklch(0.3 0.05 250)
+    );
+    --gradient-gold: linear-gradient(
+      135deg,
+      oklch(0.78 0.1 88),
+      oklch(0.68 0.085 78)
+    );
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Navy ink ground — intentional, not inverted */
+    --background: 0.19 0.032 252;
+    --foreground: 0.94 0.012 85;
+    --card: 0.235 0.036 252;
+    --card-foreground: 0.94 0.012 85;
+    --popover: 0.235 0.036 252;
+    --popover-foreground: 0.94 0.012 85;
+
+    --primary: 0.74 0.09 85;
+    --primary-foreground: 0.19 0.032 252;
+
+    --secondary: 0.28 0.036 252;
+    --secondary-foreground: 0.9 0.012 85;
+    --muted: 0.28 0.036 252;
+    --muted-foreground: 0.7 0.02 85;
+
+    --accent: 0.74 0.09 85;
+    --accent-foreground: 0.19 0.032 252;
+
+    --destructive: 0.62 0.18 27;
+    --destructive-foreground: 0.94 0.012 85;
+
+    --success: 0.68 0.13 155;
+    --warning: 0.78 0.13 75;
+
+    --border: 0.32 0.034 252;
+    --input: 0.32 0.034 252;
+    --ring: 0.74 0.09 85;
+
+    --chart-1: 0.74 0.09 85;
+    --chart-2: 0.62 0.08 60;
+    --chart-3: 0.7 0.02 85;
+    --chart-4: 0.55 0.07 220;
+    --chart-5: 0.5 0.05 250;
+
+    --sidebar: 0.16 0.03 252;
+    --sidebar-foreground: 0.94 0.012 85;
+    --sidebar-primary: 0.74 0.09 85;
+    --sidebar-primary-foreground: 0.16 0.03 252;
+    --sidebar-accent: 0.24 0.036 252;
+    --sidebar-accent-foreground: 0.94 0.012 85;
+    --sidebar-border: 0.3 0.034 252;
+    --sidebar-ring: 0.74 0.09 85;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .gradient-gold {
+    background-image: var(--gradient-gold);
+  }
+  .text-gradient-gold {
+    background-image: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hairline-gold {
+    border-color: oklch(var(--accent) / 0.45);
+  }
+  .label-caps {
+    @apply text-xs font-semibold uppercase tracking-[0.2em];
+  }
+  .paper-texture {
+    background-image: radial-gradient(
+      oklch(var(--foreground) / 0.025) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+}

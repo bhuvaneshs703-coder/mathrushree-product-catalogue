@@ -1,0 +1,18 @@
+{
+  "overview": "A premium product catalogue website for Mathrushree with a public browsing experience and a private owner console for managing products.",
+  "features": [
+    "Browse products by category, brand and collection",
+    "Product detail pages with enquiry by WhatsApp or phone",
+    "Owner sign-in to a private admin area",
+    "Admin product list showing drafts, published and archived items",
+    "Add, rename, edit and delete products from the admin area"
+  ],
+  "category": "catalogue",
+  "tags": [
+    "catalogue",
+    "products",
+    "admin",
+    "business"
+  ],
+  "last_updated": "2026-11-07T18:24:48.708Z"
+}

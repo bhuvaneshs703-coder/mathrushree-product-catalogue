@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "spec": {
+    "id": "admin-add-rename-delete-product",
+    "kind": "interactive",
+    "goal": "The owner signs in, adds a product, renames it, and deletes it from the admin product list",
+    "requirementIndexes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      17
+    ],
+    "acceptanceCriteriaIndexes": [
+      0,
+      1,
+      2,
+      5,
+      6,
+      7,
+      8,
+      10
+    ],
+    "steps": [
+      "Sign in",
+      "Press the Admin link",
+      "Add a product named Ivory Silk Saree with SKU TEST-001, create a category named Sarees from the editor, and press Create product",
+      "Press Rename on Ivory Silk Saree",
+      "Rename the product to Ivory Silk Saree Deluxe and press Save",
+      "Press Delete on Ivory Silk Saree Deluxe and confirm"
+    ],
+    "checks": [
+      {
+        "afterStep": 0,
+        "expectText": "Admin"
+      },
+      {
+        "afterStep": 1,
+        "expectText": "Products"
+      },
+      {
+        "afterStep": 2,
+        "expectText": "Ivory Silk Saree"
+      },
+      {
+        "afterStep": 2,
+        "expectText": "TEST-001"
+      },
+      {
+        "afterStep": 3,
+        "expectText": "Ivory Silk Saree"
+      },
+      {
+        "afterStep": 4,
+        "expectText": "Ivory Silk Saree Deluxe"
+      },
+      {
+        "afterStep": 5,
+        "expectNoText": "Ivory Silk Saree Deluxe"
+      }
+    ]
+  }
+}

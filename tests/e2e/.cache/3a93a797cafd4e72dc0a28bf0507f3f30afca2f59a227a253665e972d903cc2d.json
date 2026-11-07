@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-07T18:30:23.706Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap link \"Admin\"",
+        "target": {
+          "role": "link",
+          "name": "Admin"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Sign in with Internet Identity\"",
+        "target": {
+          "role": "button",
+          "name": "Sign in with Internet Identity"
+        }
+      }
+    ],
+    "executor": {
+      "name": "e2e-default-agent",
+      "version": "2"
+    },
+    "recordedFor": {
+      "testId": "admin-add-rename-delete-product.e2e.ts::admin-add-rename-delete-product",
+      "targetId": "web",
+      "instructionDigest": "664b783acec8fe4b3f6edde29428c9b0855f12f1b96daa47e698554e4322fc3a",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "recordedBy": {
+      "provider": "caffeine-inference.chat",
+      "model": "deepseek-v4.1-flash"
+    },
+    "summary": "Signed in via the Admin link and \"Sign in with Internet Identity\"; the app landed on the owner Products page (/owner/products) showing \"Private Ledger\", heading \"Products\", and an \"Add product\" link — a signed-in owner screen.",
+    "startPath": "/",
+    "endPath": "/owner/products",
+    "endAnchors": [
+      {
+        "text": "Private Ledger"
+      },
+      {
+        "role": "heading",
+        "name": "Products"
+      },
+      {
+        "text": "Every catalogue entry, including drafts and archived products."
+      },
+      {
+        "role": "link",
+        "name": "Add product"
+      },
+      {
+        "role": "searchbox",
+        "name": "Search products by name or SKU",
+        "placeholder": "Search by name or SKU"
+      },
+      {
+        "text": "State"
+      },
+      {
+        "text": "All states"
+      },
+      {
+        "role": "heading",
+        "name": "No products yet"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "text": "Est. catalogue house"
+      },
+      {
+        "role": "heading",
+        "name": "Fine stationery & lifestyle, catalogued with care."
+      },
+      {
+        "text": "Mathrushree Enterprises presents a premium editorial catalogue of notebooks, writing instruments and desk objects — each entry finished in ink on paper, with prices shared on enquiry."
+      },
+      {
+        "role": "link",
+        "name": "Browse the catalogue"
+      },
+      {
+        "role": "image",
+        "name": "Overhead flat-lay of navy and ivory journals, a black and gold fountain pen and a brass wax seal stamp on natural linen."
+      },
+      {
+        "text": "Browse"
+      },
+      {
+        "role": "heading",
+        "name": "Shop by category"
+      },
+      {
+        "text": "Explore the catalogue by the collections our house is known for."
+      }
+    ],
+    "endWaitMs": 20529,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "403fcccf39e2650a7e389bda5a9246bfe8c725769a98b3a749be67a096c16423",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "aec5acc8a8d7ba14d388c35095196d67ae7ad7199ff1168a3230addcf190cf8d",
+      "agentContextDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

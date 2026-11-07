@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "spec": {
+    "id": "admin-access-control",
+    "kind": "interactive",
+    "goal": "A signed-out visitor cannot reach the admin product list",
+    "requirementIndexes": [
+      1,
+      2,
+      15
+    ],
+    "acceptanceCriteriaIndexes": [
+      9
+    ],
+    "steps": [
+      "Open the admin product list page"
+    ],
+    "checks": [
+      {
+        "afterStep": 0,
+        "expectText": "Sign in"
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "flows": {
+    "admin-access-control": {
+      "flowId": "admin-access-control",
+      "specDigest": "d52d9f8487ceb6536c3daf3b10e6d68c07b007192ea648f0b5586664792178d5",
+      "status": "record-failed",
+      "recordedAt": "2026-11-07T18:45:20.387Z",
+      "recordedBy": "deepseek-v4.1-flash",
+      "entries": [],
+      "quarantined": true,
+      "quarantineFailure": "at steps[0] (\"Open the admin product list page\"): expect ASSERTION_FAILED: expect.toBeVisible failed locator: getByText(/Sign\\s*in/i, visible: true).first() expected: visible observed: no node (match count 0)"
+    },
+    "admin-add-rename-delete-product": {
+      "flowId": "admin-add-rename-delete-product",
+      "specDigest": "19a3b89c675f42a0cba7ef7d78d79a060de098255c4355511c20c8d4781f4deb",
+      "status": "recorded",
+      "recordedAt": "2026-11-07T18:45:20.386Z",
+      "recordedBy": "deepseek-v4.1-flash",
+      "entries": [
+        "3a93a797cafd4e72dc0a28bf0507f3f30afca2f59a227a253665e972d903cc2d.json",
+        "903901c109cf4f17258f770068d3adfb81b3e0d8f401ae70187f4b8bea0759fc.json",
+        "decf5beb9597a78c353f39a079add1134d80dc7b571fb2ca2c3bbab126ba971a.json",
+        "64bb43714492fba0eb3739517d1da1ee09972d09ec7307e9e1c865bb258d863a.json",
+        "8aa891da304098c916a79f96cabd29f53e7d5358776dc7c0f24240031676da51.json"
+      ],
+      "noChangeSteps": [
+        1
+      ],
+      "ranAfter": [],
+      "ranWith": []
+    },
+    "admin-search-and-filter": {
+      "flowId": "admin-search-and-filter",
+      "specDigest": "8d7d6b2f418935e51b33b10b86a742f3f85fffe0f8c9addbbe4ab7ee2741fa3a",
+      "status": "recorded",
+      "recordedAt": "2026-11-07T18:45:20.387Z",
+      "recordedBy": "deepseek-v4.1-flash",
+      "entries": [
+        "79d21c9b5a631227231015141bfead8aa9b4100e6635a9a6b52b0d78c74e82fe.json",
+        "efa439b80dd141e2664e76182b2920a28ce2dfc300f7b5aa930dbd694b1ca4fd.json",
+        "15de9c31cb71d565a6bb3b095f042ce0ec40bee24466c18768900ac21d678e1b.json",
+        "9997635c333afecffd0333ae14386daa299bcfb4659592e8ab8ed89c6ae180b7.json"
+      ],
+      "noChangeSteps": [
+        1
+      ],
+      "ranAfter": [
+        "admin-add-rename-delete-product"
+      ],
+      "ranWith": [
+        "admin-add-rename-delete-product"
+      ]
+    }
+  }
+}

@@ -1,0 +1,320 @@
+type _ImmutableObjectStorageRefillResult = 
+ record {
+   success: opt bool;
+   topped_up_amount: opt nat;
+ };
+type _ImmutableObjectStorageRefillInformation = record {
+                                                  proposed_top_up_amount:
+                                                   opt nat;};
+type _ImmutableObjectStorageCreateCertificateResult = 
+ record {
+   blob_hash: text;
+   method: text;
+ };
+type Variant = 
+ record {
+   availability: opt Availability;
+   name: text;
+   sku: opt text;
+   value: text;
+ };
+type Value = 
+ variant {
+   "bool": bool;
+   float: float64;
+   "int": int;
+   "nat": nat;
+   "null";
+   "text": text;
+ };
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type UserApprovalInfo = 
+ record {
+   "principal": principal;
+   status: ApprovalStatus;
+ };
+type Timestamp = int;
+type Time = int;
+type Subcategory = 
+ record {
+   categoryId: Id;
+   id: Id;
+   name: text;
+   order: nat;
+   slug: text;
+ };
+type Specification = 
+ record {
+   name: text;
+   value: text;
+ };
+type Result__1 = 
+ variant {
+   err: Error;
+   ok;
+ };
+type Result = 
+ record {
+   hasMore: bool;
+   rows: vec vec Cell;
+ };
+type Redemption = 
+ record {
+   at: Time;
+   user: principal;
+ };
+type RedeemResult = 
+ variant {
+   alreadyMember;
+   blocked;
+   expired;
+   invalid;
+   joined;
+   revoked;
+   usedUp;
+ };
+type PublishState = 
+ variant {
+   archived;
+   draft;
+   published;
+ };
+type ProductSort = 
+ variant {
+   nameAsc;
+   nameDesc;
+   newest;
+   priceAsc;
+   priceDesc;
+ };
+type ProductPage = 
+ record {
+   page: nat;
+   pageSize: nat;
+   products: vec Product;
+   total: nat;
+ };
+type ProductImage = 
+ record {
+   altText: opt text;
+   "blob": ExternalBlob;
+   filename: text;
+   id: Id;
+   order: nat;
+ };
+type ProductFilter = 
+ record {
+   brandId: opt Id;
+   categoryId: opt Id;
+   page: opt nat;
+   pageSize: opt nat;
+   publishState: opt PublishState;
+   search: opt text;
+   sort: opt ProductSort;
+   subcategoryId: opt Id;
+ };
+type Product = 
+ record {
+   availability: Availability;
+   brandId: opt Id;
+   categoryId: Id;
+   createdAt: Timestamp;
+   id: Id;
+   images: vec ProductImage;
+   isBestseller: bool;
+   isFeatured: bool;
+   isNewArrival: bool;
+   isTrending: bool;
+   longDescription: text;
+   name: text;
+   price: opt nat;
+   publishState: PublishState;
+   shortDescription: text;
+   showOnHomepage: bool;
+   sku: text;
+   specifications: vec Specification;
+   subcategoryId: opt Id;
+   updatedAt: Timestamp;
+   variants: vec Variant;
+ };
+type InviteStatus = 
+ variant {
+   expired;
+   invalid;
+   revoked;
+   usedUp;
+   valid;
+ };
+type InviteInfo = 
+ record {
+   code: text;
+   createdAt: Time;
+   createdBy: principal;
+   expiresAt: opt Time;
+   maxUses: opt nat;
+   name: text;
+   redemptions: vec Redemption;
+   revoked: bool;
+ };
+type Id = nat;
+type HomepageSections = 
+ record {
+   bestsellers: vec Product;
+   featured: vec Product;
+   featuredCollections: vec Collection;
+   newArrivals: vec Product;
+   trending: vec Product;
+ };
+type ExternalBlob = blob;
+type Error = 
+ variant {
+   AmbiguousAttribute: record {
+                         field: text;
+                         sources: vec text;
+                       };
+   FrontendOriginMismatch: record {
+                             expected: vec text;
+                             got: text;
+                           };
+   FrontendOriginsNotConfigured;
+   MalformedCandid;
+   MissingField: text;
+   MixedSsoSources: record {
+                      otherKeys: vec text;
+                      ssoKeys: vec text;
+                    };
+   NoAttributes;
+   Stale: record {ageNs: nat;};
+   UnknownNonce;
+   UntrustedSsoSource: record {domain: text;};
+ };
+type EnquiryResult = 
+ variant {
+   err: text;
+   ok;
+ };
+type Enquiry = 
+ record {
+   contact: text;
+   message: text;
+   name: text;
+ };
+type Collection = 
+ record {
+   description: opt text;
+   id: Id;
+   name: text;
+   order: nat;
+   productIds: vec Id;
+   slug: text;
+ };
+type Cell = 
+ record {
+   name: text;
+   value: Value;
+ };
+type Category = 
+ record {
+   description: opt text;
+   id: Id;
+   name: text;
+   order: nat;
+   slug: text;
+   subcategories: vec Subcategory;
+ };
+type CatalogueError = 
+ variant {
+   duplicateSku: text;
+   invalidInput: text;
+   notFound;
+   ok;
+   unauthorized;
+ };
+type Brand = 
+ record {
+   description: opt text;
+   id: Id;
+   logo: opt ExternalBlob;
+   name: text;
+   slug: text;
+ };
+type Availability = 
+ variant {
+   inStock;
+   madeToOrder;
+   outOfStock;
+ };
+type ApprovalStatus = 
+ variant {
+   approved;
+   pending;
+   rejected;
+ };
+service : {
+  _immutableObjectStorageBlobsAreLive: (hashes: vec blob) -> (vec bool) query;
+  _immutableObjectStorageBlobsToDelete: () -> (vec blob) query;
+  _immutableObjectStorageConfirmBlobDeletion: (blobs: vec blob) -> ();
+  _immutableObjectStorageCreateCertificate: (blobHash: text) ->
+   (_ImmutableObjectStorageCreateCertificateResult);
+  _immutableObjectStorageRefillCashier: (refillInformation:
+   opt _ImmutableObjectStorageRefillInformation) ->
+   (_ImmutableObjectStorageRefillResult);
+  _immutableObjectStorageUpdateGatewayPrincipals: () -> ();
+  _initialize_access_control: () -> ();
+  _internet_identity_sign_in_finish: () -> (Result__1);
+  _internet_identity_sign_in_start: () -> (blob);
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  assignProductToCollection: (collectionId: Id, productId: Id) ->
+   (CatalogueError);
+  checkInvite: (code: text) -> (InviteStatus) query;
+  createBrand: (brand: Brand) -> (CatalogueError);
+  createCategory: (category: Category) -> (CatalogueError);
+  createCollection: (collection: Collection) -> (CatalogueError);
+  createInvite: (name: text, maxUses: opt nat, expiresAt: opt Time) -> (text);
+  createProduct: (product: Product) -> (CatalogueError);
+  createSubcategory: (subcategory: Subcategory) -> (CatalogueError);
+  deleteBrand: (id: Id) -> (CatalogueError);
+  deleteCategory: (id: Id) -> (CatalogueError);
+  deleteCollection: (id: Id) -> (CatalogueError);
+  deleteProduct: (id: Id) -> (CatalogueError);
+  deleteSubcategory: (id: Id) -> (CatalogueError);
+  duplicateProduct: (id: Id) -> (CatalogueError);
+  execute: (qJson: text) -> (Result) query;
+  getApiDoc: () -> (text) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getPublishedProduct: (id: Id) -> (opt Product) query;
+  isCallerAdmin: () -> (bool) query;
+  isCallerApproved: () -> (bool) query;
+  /// Owner-only read of every product regardless of publish state.
+  /// Returns null when the caller is not the signed-in owner.
+  listAllProducts: (filter: ProductFilter) -> (opt ProductPage) query;
+  listApprovals: () -> (vec UserApprovalInfo) query;
+  listBrands: () -> (vec Brand) query;
+  listCategories: () -> (vec Category) query;
+  listCollections: () -> (vec Collection) query;
+  listHomepageSections: () -> (HomepageSections) query;
+  listInvites: () -> (vec InviteInfo) query;
+  listPublishedProducts: (filter: ProductFilter) -> (ProductPage) query;
+  redeemInvite: (code: text) -> (RedeemResult);
+  removeApproval: (user: principal) -> ();
+  removeProductFromCollection: (collectionId: Id, productId: Id) ->
+   (CatalogueError);
+  reorderProductImages: (productId: Id, imageIds: vec Id) -> (CatalogueError);
+  requestApproval: () -> ();
+  revokeInvite: (code: text) -> ();
+  schema: () -> (text) query;
+  setApproval: (user: principal, status: ApprovalStatus) -> ();
+  setProductFlag: (id: Id, flag: text, value: bool) -> (CatalogueError);
+  setPublishState: (id: Id, state: PublishState) -> (CatalogueError);
+  submitEnquiry: (enquiry: Enquiry) -> (EnquiryResult);
+  updateBrand: (brand: Brand) -> (CatalogueError);
+  updateCategory: (category: Category) -> (CatalogueError);
+  updateCollection: (collection: Collection) -> (CatalogueError);
+  updateProduct: (product: Product) -> (CatalogueError);
+  updateSubcategory: (subcategory: Subcategory) -> (CatalogueError);
+}

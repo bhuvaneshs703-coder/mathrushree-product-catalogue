@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-11-07T18:44:11.701Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap link \"Products\"",
+        "target": {
+          "role": "link",
+          "name": "Products"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Delete\" in \"Ivory Silk Saree Deluxe\"",
+        "target": {
+          "role": "button",
+          "name": "Delete",
+          "within": "Ivory Silk Saree Deluxe"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Delete product\"",
+        "target": {
+          "role": "button",
+          "name": "Delete product"
+        }
+      }
+    ],
+    "executor": {
+      "name": "e2e-default-agent",
+      "version": "2"
+    },
+    "recordedFor": {
+      "testId": "admin-add-rename-delete-product.e2e.ts::admin-add-rename-delete-product",
+      "targetId": "web",
+      "instructionDigest": "43de465c7ce84d1c1275ba0e3a3ba2d872e3491e543c511a47f95034c97520ac",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "recordedBy": {
+      "provider": "caffeine-inference.chat",
+      "model": "deepseek-v4.1-flash"
+    },
+    "summary": "Pressed Delete on the \"Ivory Silk Saree Deluxe\" row (SKU TEST-001), confirmed with \"Delete product\" in the \"Delete this product?\" dialog. The catalogue is now empty (\"No products yet\"), so the product was deleted.",
+    "startPath": "/owner/products/0",
+    "endPath": "/owner/products",
+    "endAnchors": [
+      {
+        "text": "Private Ledger"
+      },
+      {
+        "role": "heading",
+        "name": "Products"
+      },
+      {
+        "text": "Every catalogue entry, including drafts and archived products."
+      },
+      {
+        "role": "link",
+        "name": "Add product"
+      },
+      {
+        "role": "searchbox",
+        "name": "Search products by name or SKU",
+        "placeholder": "Search by name or SKU"
+      },
+      {
+        "text": "State"
+      },
+      {
+        "text": "All states"
+      },
+      {
+        "role": "heading",
+        "name": "No products yet"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "status",
+        "name": "Product saved successfully."
+      },
+      {
+        "role": "link",
+        "name": "Products"
+      },
+      {
+        "role": "heading",
+        "name": "Edit product"
+      },
+      {
+        "text": "Update this catalogue entry and its images."
+      },
+      {
+        "text": "Identity"
+      },
+      {
+        "text": "Product name"
+      },
+      {
+        "role": "textbox",
+        "name": "Product name",
+        "placeholder": "e.g. Hand-bound Leather Journal",
+        "value": "Ivory Silk Saree Deluxe"
+      },
+      {
+        "text": "SKU"
+      }
+    ],
+    "endWaitMs": 11118,
+    "keyedBy": {
+      "cacheSchema": "trace-1",
+      "policyVersion": "conservative/6",
+      "project": "403fcccf39e2650a7e389bda5a9246bfe8c725769a98b3a749be67a096c16423",
+      "platform": "web",
+      "engineName": "web",
+      "engineSpiVersion": 1,
+      "appIdentity": "aec5acc8a8d7ba14d388c35095196d67ae7ad7199ff1168a3230addcf190cf8d",
+      "agentContextDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}
